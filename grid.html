@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Grid</title>
+  <style>
+  p, img {
+    justify-self: center;
+    align-self: center;
+  }
+
+  span {
+    color: red;
+    font-weight: bold;
+    font-size: 2em;
+  }
+
+  img {
+    width: 100px;
+    height: 200px;
+  }
+
+  @media (max-width: 5000px) {
+    .grid {
+      display: grid;
+      grid-template: "eleventh . twelfth"
+                     "first second third"
+                     "fourth img fifth "
+                     "sixth sevent eighth "
+                     ". ninth ."
+                     ". tenth .";
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      max-width: 992px;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .grid {
+      grid-template: 
+                     "tenth tenth"
+                     "first second"
+                     "fifth sixth"
+                     "eleventh eleventh"
+                     "img img"
+                     "twelfth twelfth"
+                     "third fourth"
+                     "sevent eighth"
+                     "ninth ninth";
+                     
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 100px  100px 100px 100px 200px 100px 100px 100px 100px;
+      grid-gap: 5px;
+      min-width: 550px;
+      margin: 0 auto;
+    }
+  }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <img style="grid-area: img" src="https://svgsilh.com/svg/2052062.svg" alt="">
+    <p style="grid-area: first"><span>8</span></p>
+    <p style="grid-area: second"><span>8</span></p>
+    <p style="grid-area: third"><span>8</span></p>
+    <p style="grid-area: fourth"><span>8</span></p>
+    <p style="grid-area: fifth"><span>8</span></p>
+    <p style="grid-area: sixth"><span>8</span></p>
+    <p style="grid-area: sevent"><span>8</span></p>
+    <p style="grid-area: eighth"><span>8</span></p>
+    <p style="grid-area: ninth"><span>8</span></p>
+    <p style="grid-area: tenth"><span>8</span></p>
+    <p style="grid-area: eleventh"><span>8</span></p>
+    <p style="grid-area: twelfth"><span>8</span></p>
+  </div>
+</body>
+</html>
