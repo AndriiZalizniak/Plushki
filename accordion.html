@@ -8,65 +8,121 @@
   <style>
 
     body, ul, li, h2, p {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      font-size: 32px;
-    }
-    input[type=checkbox] {
-      display: none;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: 'Roboto', sans-serif;
     }
 
-    .accordion {      
-      /* width: 100%; */
-      background-color: #c5c1d8;
-      
-    }
-    .accordion label {
-      
-      display: block;
-      width: 100%;
-      height: 100%;
-      padding: 15px 0;
-      text-align: center;
-      cursor: pointer;
-    }
-    .accordion label::after {
-      position: absolute;
-      top: 1em;
-      right: 25px;
-      content: '';
-      width: 10px;
-      height: 10px;
-      border-right: 0.1em solid #16A085;
-      border-top: 0.1em solid #16A085;
-      transform: rotate(-45deg);
-      transition: 1s;
+    p {
+    font-size: 18px;
     }
 
-    :checked + label::after {
-      border-right: none;
-      border-top: none;
-      border-left: 0.1em solid #16A085;
-      border-bottom: 0.1em solid #16A085;
-      
+    .ac-container input{
+    display: none;
     }
+
+    .ac-container-wrap {
+    padding: 0 50px;
+    }
+
+    .ac-container{
+    width: 100%;
+    }
+    
+    .ac-container label{
+    padding: 10px;
+    text-align: center;
+    display: block;
+    cursor: pointer;
+    border-top: 1px solid #ECF0F1;
+    }
+    .ac-container label:hover {
+      background-color: #fafafa;
+    }
+    .ac-container > :last-child {
+    border-bottom: 1px solid #ECF0F1;
+    }
+
+    label::after{
+    float: right;
+    position: relative;
+    bottom: 1em;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 0.1em solid #16A085;
+    border-top: 0.1em solid #16A085;
+    transition: 1s;
+    transform: rotate(-45deg);
+    }
+
+    :checked + label::after{
+    transform: rotate(135deg);
+    }
+
+    .ac-container .ac-content{
+    margin: 0 auto;
+    max-width: 600px;
+    overflow: hidden;
+    height: 0px;
+    transition: 1s;
+    text-align: center;
+    }
+
+    .ac-container input:checked ~ .ac-content{
+    padding-top: 10px;
+    }
+
+    .ac-container input:checked ~ .ac-tiny {
+    height: 60px;
+    }
+    .ac-container input:checked ~ .ac-small {
+    height: 100px;
+    }
+    .ac-container input:checked ~ .ac-medium {
+    height: 150px;
+    }
+    .ac-container input:checked ~ .ac-large {
+    height: 200px;
+    }
+
   </style>
 </head>
 <body>
-  <div class="accordion">
-    <ul class="ac-list">
-      <li>
-        <input type="checkbox" name="" id="check-1">
-        <label for="check-1">
-          <h2>open me</h2>
-        </label>
-        <div class="ac-content">
-          <p>some text</p>
-          <p>one more text</p>
+  <div class="ac-container-wrap">
+    <section class="ac-container">
+      <div>
+        <input id="ac-1" name="accordion" type="checkbox" />
+        <label for="ac-1"><h2>What are the requirements to apply for a loan in Kredit24?</h2></label>
+        <div class="ac-content ac-tiny">
+          <p>Loans that can be raised is a minimum of Rp. 1 000 000 up to a maximum of Rp. 2 000 000.</p>
         </div>
-      </li>
-    </ul>
+      </div>
+      <div>
+        <input id="ac-2" name="accordion" type="checkbox" />
+        <label for="ac-2"><h2>How much loan amount can be submitted?</h2></label>
+        <div class="ac-content ac-small">
+          <p>Loans that can be raised is a minimum of Rp. 1 000 000 up to a maximum of Rp. 2 000 000. If you are a good customer, for a loan to the 3rd and so on, you can apply for loans up to Rp. 3 000 000.</p>
+        </div>
+      </div>
+      <div>
+        <input id="ac-4" name="accordion" type="checkbox" />
+        <label for="ac-4">
+          <h2>How does the system of repayment?</h2>
+        </label>
+        <div class="ac-content ac-medium">
+          <p>Loans that can be raised is a minimum of Rp. 1 000 000 up to a maximum of Rp. 2 000 000. If you are a good customer, for a loan to the 3rd and so on, you can apply for loans up to Rp. 3 000 000.Loans that can be raised is a minimum of Rp. 1 000 000 up to a maximum of Rp. 2 000 000. If you are a good customer, for a loan to the 3rd and so on, you can apply for loans up to Rp. 3 000 000.</p>
+        </div>
+      </div>
+      <div>
+        <input id="ac-3" name="accordion" type="checkbox" />
+        <label for="ac-3"><h2>How do I apply for a loan?</h2></label>
+        <div class="ac-content ac-large">
+          <p>Loans that can be raised is a minimum of Rp. 1 000 000 up to a maximum of Rp. 2 000 000. If you are a good customer, for a loan to the 3rd and so on, you can apply for loans up to Rp. 3 000 000.Loans that can be raised is a minimum of Rp. 1 000 000 up to a maximum of Rp. 2 000 000. If you are a good customer, for a loan to the 3rd and so on, you can apply for loans up to Rp. 3 000 000.Loans that can be raised is a minimum of Rp. 1 000 000 up to a maximum of Rp. 2 000 000. If you are a good customer, for a loan to the 3rd and so on, you can apply for loans up to Rp. 3 000 000.</p>
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 </html>
