@@ -1,0 +1,114 @@
+.l-wrap {
+  position: relative;
+  margin: 0 auto;
+  width: 1200px;
+  text-align: center;
+  
+}
+
+.custom-my-swiper {
+  margin: 25px auto 0;
+  position: relative;
+  height: 500px;
+  width: 1000px;
+  overflow: hidden;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  clip-path: polygon(50% 25%, 100% 0, 95% 50%, 100% 100%, 50% 75%, 0 100%, 5% 50%, 0 0);
+}
+
+.custom-my-swiper__wrapper {
+  display: flex;
+  margin: 0 auto;
+  height: 500px;
+  width: 1000px;
+}
+
+.custom-my-swiper__slide {
+  flex: 0 0 100%;
+}
+
+.custom-my-swiper__wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.custom-my-swiper__pagination {
+  margin: 25px auto 0;
+  /* position: absolute; */
+  /* bottom: 25px; */
+  transition: 1s;
+}
+
+.custom-my-swiper__pagination :not(:last-child) {
+  margin-right: 10px;
+}
+
+.custom-my-swiper__pagination>span {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0) 7px, #FFF8E7 8px);
+}
+
+
+
+.custom-my-swiper__controll {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: calc(50% - (48px / 2));
+  width: 48px;
+  height: 48px;
+  background-color: #FFF8E7;
+  border-radius: 50%;
+  transition: 1s;
+}
+
+.custom-my-swiper__controll:focus, 
+.swiper-pagination-bullet:focus {
+  outline: none;
+  border: none;
+}
+
+.custom-my-swiper__pagination > .swiper-pagination-bullet-active {
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0) 7px, #FFEBB7 8px);
+}
+
+.swiper-pagination-bullet {
+  transition: 1s;
+}
+
+.swiper-pagination-bullet:hover {
+  background-image: radial-gradient(circle at center, rgba(255, 255, 255, 0) 7px, #FFEBB7 8px);
+  cursor: pointer;
+  box-shadow: 0 0px 10px rgba(160, 160, 160, 0.5);
+}
+
+.custom-my-swiper__controll:hover {
+  background-color: #FFEBB7;
+  cursor: pointer;
+  box-shadow: 0 0px 10px rgba(160, 160, 160, 0.5);
+}
+
+.custom-my-swiper__controll:hover svg path{
+  stroke: #fff; 
+  fill: #fff;
+}
+
+.custom-my-swiper__controll--prev {
+  /* left: 25px; */
+  left: 0px;
+}
+
+.custom-my-swiper__controll--next {
+  /* right: 25px; */
+  right: 0px;
+}
+
+
+
