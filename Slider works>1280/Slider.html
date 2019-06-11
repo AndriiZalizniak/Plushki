@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- <link rel="stylesheet" href="swiper.min.css"> -->
+
+  <style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #eee;
+    }
+    ul, li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    img {
+      display: block;
+    }
+  </style>
+
+  <link rel="stylesheet" href="swiper.css">
+</head>
+<body>
+  <div class="l-wrap custom-swiper-item">
+
+    <div class="swiper-container custom-my-swiper">
+      <ul class="swiper-wrapper custom-my-swiper__wrapper">
+        <li class="swiper-slide custom-my-swiper__slide">
+          <a href="#"><img src="1.jpg" alt=""></a>
+        </li>
+
+        <li class="swiper-slide custom-my-swiper__slide">
+          <a href="#"><img src="2.jpg" alt=""></a>
+        </li>
+
+        <li class="swiper-slide custom-my-swiper__slide">
+          <a href="#"><img src="3.jpg" alt=""></a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="swiper-button-prev custom-my-swiper__controll custom-my-swiper__controll--prev">
+      <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.94 10.94a1.5 1.5 0 0 0 0 2.12l9.545 9.547a1.5 1.5 0 1 0 2.122-2.122L4.12 12l8.486-8.485a1.5 1.5 0 1 0-2.122-2.122L.94 10.94zM27 10.5H2v3h25v-3z" fill="#FFD873" /></svg>
+    </div>
+    <div class="swiper-button-next custom-my-swiper__controll custom-my-swiper__controll--next">
+      <svg width="27" height="24" viewBox="0 0 27 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M26.06 13.06a1.5 1.5 0 0 0 0-2.12l-9.545-9.547a1.5 1.5 0 1 0-2.122 2.122L22.88 12l-8.486 8.485a1.5 1.5 0 1 0 2.122 2.122l9.546-9.546zM0 13.5h25v-3H0v3z" fill="#FFD873" /></svg>
+    </div>
+    
+    <div class="swiper-pagination custom-my-swiper__pagination">
+      <span class="custom-my-swiper__pagination--item"></span>
+      <span class="custom-my-swiper__pagination--item"></span>
+      <span class="custom-my-swiper__pagination--item"></span>
+    </div>
+  </div>
+  
+  <script src="swiper.min.js"></script>
+
+  <script>
+    function init() {
+      if (window.innerWidth > 1281) return;
+      let swipers = Array.from(document.querySelectorAll('.custom-swiper-item'));
+
+      swipers.forEach(element => {
+        const swiper = element.querySelector('.swiper-container');
+        const pagin = element.querySelector('.custom-my-swiper__pagination');
+        const next = element.querySelector('.swiper-button-next');
+        const prev = element.querySelector('.swiper-button-prev');
+
+        new Swiper(swiper, {
+          spaceBetween: 0,
+          speed: 1200,
+          centeredSlides: true,
+          loop: true,
+          autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: pagin,
+            clickable: true,
+          },
+          navigation: {
+            nextEl: next,
+            prevEl: prev,
+          },
+        });
+      });
+    };
+
+    init();
+  </script>
+</body>
+</html>
