@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bubble and other effects</title>
+  <style>
+    * {
+      transition: .5s;
+    }
+
+    body {
+      background-color: rgb(59, 55, 77);
+    }
+
+    .wrap {
+      text-align: center;
+    }
+
+    .wrap ul:not(:last-child) {
+      margin-bottom: 70px;
+    }
+
+    ul, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul :not(:last-child) {
+      margin-right: 5px;
+    }
+
+    li {
+      display: inline-block;
+      list-style: none;
+      
+    }
+    :-webkit-any(.first, .second) li {
+      clip-path: circle(50% at 50% 50%);
+    }
+    .fourth li {
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(0,0,0,.5);
+    }
+
+    .first li :hover {
+      transform: scale(1.2);
+    }
+
+    .second li :hover {
+      animation: shafle .5s forwards;
+    }
+
+    .third li :hover {
+      position: relative;
+      transform: scale(1.6);
+      z-index: 5;
+    }
+
+    .fourth li :hover {
+      animation: stressed .2s forwards;
+    }
+
+    .fifth li :hover {
+      animation: jump .5s ease-in;
+    }
+
+    img {
+      display: block;
+      width: 98px;
+      height: 98px;
+    }
+
+    @keyframes shafle {
+      0% {
+        transform: rotate(0deg);
+        transform: scale(1.2);
+      }
+      25% {
+        transform: rotate(-10deg);
+      }
+      50% {
+        transform: rotate(10deg);
+        transform: scale(1);
+      }
+      75% {
+        transform: rotate(-5deg);
+      }
+      100% {
+        transform: rotate(0deg);
+        transform: scale(1.2);
+      }
+    }
+
+    @keyframes stressed {
+      0% {
+        transform: translateX(0px);
+      }
+      25% {
+        transform: translateX(-5px);
+      }
+      50% {
+        transform: translateX(5px);
+      }
+      75% {
+        transform: translateX(-5px);
+      }
+      100% {
+        transform: translateX(0px);
+      }
+    }
+
+    @keyframes jump {
+      0% {
+        transform: translateY(0px);
+      }
+      25% {
+        transform: translateY(-15px) scaleY(1.15);
+      }
+      50% {
+        transform: translateY(8px) scaleY(0.9);
+      }
+      75% {
+        transform: translateY(-15px) scaleY(1.15);
+      }
+      90% {
+        transform: translateY(8px) scaleY(0.9);
+      }
+      100% {
+        transform: translateY(0px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+      <ul class="first">
+          <li>
+            <a href="#"> <img src="fb.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tw.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="qq.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tg.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="yt.png" alt=""></a>
+          </li>
+        </ul>
+      
+        <ul class="second">
+          <li>
+            <a href="#"> <img src="fb.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tw.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="qq.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tg.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="yt.png" alt=""></a>
+          </li>
+        </ul>
+        <ul class="third">
+          <li>
+            <a href="#"> <img src="fb.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tw.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="qq.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tg.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="yt.png" alt=""></a>
+          </li>
+        </ul>
+        <ul class="fourth">
+          <li>
+            <a href="#"> <img src="fb.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tw.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="qq.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tg.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="yt.png" alt=""></a>
+          </li>
+        </ul>
+        <ul class="fifth">
+          <li>
+            <a href="#"> <img src="fb.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tw.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="qq.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="tg.png" alt=""></a>
+          </li>
+          <li>
+            <a href="#"> <img src="yt.png" alt=""></a>
+          </li>
+        </ul>
+  </div>
+  
+</body>
+</html>
