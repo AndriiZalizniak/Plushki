@@ -1,0 +1,356 @@
+/* reset */
+ body {
+  height: 100%;
+}
+html, body, ul, ol, li, p {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* //////////////// */
+
+/* style */
+.order-form__container {
+  margin: 0 auto;
+  padding: 25px;
+  max-width: 900px;
+  background: linear-gradient(to right, #FFEBB7, #FFF8E7);
+  font-family: 'Poiret One';
+  font-size: 22px;
+  color: #243C3A;
+}
+.order-form__container > p {
+position: relative;
+  font-size: 36px;
+  text-align: center;
+}
+  .product-list__wrap {
+    padding-top: 40px;
+  }
+    .product-list-header {
+      padding-bottom: 15px;
+      padding-left: 50px;
+    }
+    .product-list-header .basket-icon {
+      position: relative;
+    }
+    .product-list-header .basket-icon::before {
+      position: absolute;
+      content: url(img/basket-icon.svg);
+      left: -40px;
+    }
+
+    .product-list-header,
+    .product-list__inner {
+      display: flex;
+      justify-content: space-between;
+    }
+
+      .product-list {
+        position: relative;
+        padding-left: 50px;
+        counter-reset: list;
+      }
+      .product-list li {
+        line-height: 1.7em;
+      }
+      .product-list > :not(:last-child) {
+        padding-bottom: 0.5em;
+      }
+
+        .product-list li::before {
+          position: absolute;
+          left: 0px;
+          counter-increment: list;
+          content: counter(list) '.';
+          color: #890246;
+          background: radial-gradient(circle, rgb(255, 255, 255) 50%, rgb(201, 140, 0) 100%);
+          text-align: center;
+          line-height: 1.7em;
+          border-radius: 50%;
+          width: 38px;
+          height: 38px;
+        }
+      .product-payment-list {
+        padding-right: 26px;
+        position: relative;
+        text-align: right;
+      }
+      .product-payment-list li {
+        line-height: 1.7em;
+      }
+      .product-payment-list > :not(:last-child) {
+        padding-bottom: 0.5em;
+      }
+
+      .total-payment {
+        position: relative;
+        margin-top: 15px;
+        padding-top: 15px;
+        padding-left: 50px;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+      }
+      .total-payment::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to left, #FFEBB7, #FFF8E7);
+      }
+
+      .total-payment > :last-child {
+        padding-right: 26px;
+        position: relative;
+        text-align: right;
+      }
+
+      .symbol-uah::after {
+        position: absolute;
+        content: '\20B4';
+        right: 0;
+      }
+  .client-info-payment__wrap {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .reminder {
+    line-height: 1.3em;
+    text-align: center;
+  }
+  .reminder :last-child{
+    color: rgb(138, 38, 43);
+  }
+  .list-inner {
+    padding-top: 40px;
+    /* display: flex; */
+    justify-content: space-evenly;
+  }
+
+  .client-info-list > p,
+  .payment-info-list > p {
+    padding-bottom: 20px;
+  }
+  .label-act .error{
+    display: none;
+  }
+  .label-act label {
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 40px;
+    /* transition: .5s; */
+    /* overflow: hidden; */
+  }
+  .label-act label .br {
+    position: relative;
+    /* width: 100%;
+    height: 100%; */
+  }
+  /* .label-act label .br::before{
+    position: absolute;
+    content: '';
+    width: 300px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    
+  } */
+ 
+  .label-act input {
+    display: block;
+    position: absolute;
+    padding: 0px 15px;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    line-height: 0;
+    font-family: 'Poiret One';
+    background-color: rgba(255, 255, 255, 0);
+    box-sizing: border-box;
+    transition: .5s;
+    border-bottom: 3px solid rgba(36, 60, 58, 0.5);
+  }
+  .label-act input:focus  {
+    /* animation: bg .5s; */
+    
+  }
+  @keyframes bg {
+    from {
+      transform: translateY(40px) scaleY(0);
+    }
+    20% {
+      transform: translateY(0px) scaleY(0.7);
+    }
+    /* 80% {
+      transform: translateY(0px) scaleY(0.8);
+    } */
+    to {
+      transform: translateY(0px) scaleY(1);
+
+    }
+  }
+  .label-act input:focus ~ .plholder,.label-act input:valid ~ .plholder {
+    transform: translateY(40px);
+    font-size: 16px;
+    /* transition: .5s; */
+  }
+  .label-act input:valid ~ .plholder {
+    transform: translateY(40px);
+    font-size: 16px;
+    /* transition: .5s; */
+  }
+
+  .label-act .plholder {
+    position: absolute;
+    top: 1em;
+    left: 15px;
+    pointer-events: none;
+    line-height: 0;
+    transition: .5s;
+  }
+   /*.label-act .error-massage-disable {
+    display: none;
+  }
+  .label-act li {
+    position: relative;
+  }
+  .label-act li:not(:last-child){
+    padding-bottom: 30px;
+  }
+  .label-act input {
+    padding: 0 15px;
+    position: relative;
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 0;
+    font-family: 'Poiret One';
+    outline: none;
+    border: none;
+    border-bottom: 3px solid rgba(36, 60, 58, 0.527);
+    background-color: transparent;
+    transition: .5s;
+  }
+  .label-act label {
+    position: absolute;
+    width: 300px;
+    top: 10px;
+    left: 15px;
+    pointer-events: none;
+    transition: .5s;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .label-act input:focus + label,
+  .label-act input:valid + label {
+    transform: translateY(40px);
+    font-size: 16px;
+  }
+  .label-act input:valid + label {
+    color: rgb(38, 138, 129);
+  }
+  .label-act input:invalid + label {
+    color: rgb(138, 38, 43);
+  } */
+
+  /* /////// */
+  .txt-area {
+    margin: 0 auto;
+    padding-top: 40px;
+    max-width: 740px;
+    width: 100%;
+  }
+  .txt-area :first-child {
+    padding-bottom: 25px;
+    text-align: center;
+  }
+  textarea {
+    width: 100%;
+    height: 100px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Poiret One';
+    border: 2px solid rgb(38, 138, 129);
+    background-color: rgba(255, 255, 255, 0);
+    color: #243C3A;
+    resize: none;
+    box-sizing: border-box;
+  }
+  textarea:focus {
+    outline: none;
+  }
+  .form-btn-inner {
+    margin: 0 auto;
+    padding-top: 30px;
+    width: 100%;
+    max-width: 300px;
+  }
+  button[type="submit"] {
+    padding: 10px 15px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Poiret One';
+    background-color: rgb(38, 138, 129);
+    color: #ffffff;
+    text-align: center;
+    transition: .5s;
+    box-shadow: 0 0 10px rgba(36, 60, 58, 0.5);
+  }
+  button[type="submit"]:hover {
+    filter: brightness(110%);
+    box-shadow: 0 0 10px rgba(36, 60, 58);
+    cursor: pointer;
+  }
+  button[type="submit"]:focus {
+    outline: none;
+    border: none;
+    background-color: #243C3A;
+  }
+
+  @media (max-width: 767px) {
+    .list-inner {
+      display: block;
+    }
+    .label-act input {
+      padding: 0;
+      width: 100%;
+    }
+    .label-act label {
+      width: 100%;
+    }
+    .payment-info-list {
+      padding-top: 40px;
+    }
+    .label-act > p {
+      text-align: center;
+    }
+  }
+  @media (max-width: 575px) {
+    .product-list__wrap {
+      font-size: 14px
+    }
+    .product-list li::before {
+      width: 25px;
+      height: 25px;
+      line-height: 1.9;
+    }
+    .client-info-payment__wrap {
+      font-size: 20px;
+    }
+  }
+  @media (max-width: 374px) {
+    .product-list__wrap {
+      font-size: 13px
+    }
+  }
