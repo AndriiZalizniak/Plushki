@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #ccc;
+      font-family: sans-serif;
+    }
+  
+    /* .input {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+    vertical-align: top;
+    }
+    .input__field {
+    position: relative;
+    display: block;
+    float: right;
+    padding: 0.8em;
+    width: 60%;
+    border: none;
+    border-radius: 0;
+    background: #f0f0f0;
+    color: #aaa;
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-appearance: none;
+    }
+    .input__field--yoko {
+    z-index: 10;
+    width: 100%;
+    background: transparent;
+    color: #f5f5f5;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    }
+    .input__label {
+    display: inline-block;
+    float: right;
+    padding: 0 1em;
+    width: 40%;
+    color: #6a7989;
+    font-weight: bold;
+    font-size: 70.25%;
+    user-select: none;
+  }
+  .input__label--yoko {
+    position: relative;
+    width: 100%;
+    color: #b04b40;
+    text-align: left;
+}
+.input__label--yoko::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    height: 4em;
+    background: #c5564a;
+    -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+    transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transform-origin: 50% 100%;
+    transform-origin: 50% 100%;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+.input__label--yoko::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.25em;
+    background: #ad473c;
+    -webkit-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+}
+.input__label-content--yoko {
+    padding: 0.75em 0;
+}
+.input__label-content {
+    position: relative;
+    display: block;
+    padding: 1.6em 0;
+    width: 100%;
+}
+.input__label--yoko {
+    position: relative;
+    width: 100%;
+    color: #b04b40;
+    text-align: left;
+}
+
+.input__field--yoko:focus + .input__label--yoko::before, .input--filled .input__label--yoko::before {
+    -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+    transform: perspective(1000px) rotate3d(1, 0, 0, 0deg);
+    }
+
+    .input__field--yoko:focus + .input__label--yoko::after, .input--filled .input__label--yoko::after {
+    -webkit-transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+    transform: perspective(1000px) rotate3d(1, 0, 0, -90deg);
+    } */
+    .input-wrap,
+    .input-wrap input,
+    .input-wrap label {
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0);
+    }
+    .input-wrap {
+      margin: 25px 10px;
+      display: inline-block;
+      position: relative;
+      width: 300px;
+      height: 40px;
+    }
+    .input-wrap input {
+      padding-left: 15px;
+      padding-right: 15px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      outline: none;
+      border: none;
+      z-index: 2;
+    }
+    .input-wrap label {
+      display: block;
+      position: relative;
+      width: 300px;
+      height: 40px;
+    }
+    /* start 1st input */
+    .input-wrap .label-1::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      height: 5px;
+      border-radius: 25px;
+      background-color: rgb(133, 84, 84);
+      transition: .5s;
+    }
+    .input-wrap .label-1::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      height: 40px;
+      border-radius: 25px;
+      background-color: rgba(179, 129, 129, 0.5);
+      transition: .5s;
+      transform: rotateY(90deg);
+    }
+    .input-wrap .txt-1 {
+      position: absolute;
+      top: 25%;
+      left: 15px;
+      transition: .5s;
+      color: rgba(139, 0, 0, 0.5);
+      font-size: 18px;
+    }
+    .input-wrap input:focus ~ .txt-1 {
+      transform: translateY(35px);
+      font-size: 14px;
+    }
+    .input-wrap input:focus ~ .label-1::after {
+      transform: rotateY(90deg);
+      transform-origin: center center;
+    }
+    .input-wrap input:focus ~ .label-1::before {
+      transform: rotateY(0deg);
+    }
+    .input-wrap input:valid ~ .txt-1 {
+      transform: translateY(35px);
+      font-size: 14px;
+      color: rgb(58, 105, 90);
+    }
+    .input-wrap input:valid ~ .label-1::after {
+      background-color: rgb(58, 105, 90);
+    }
+    .input-wrap input:invalid ~ .txt-1 {
+      /* transform: translateY(35px); */
+      /* font-size: 14px; */
+      color: rgb(136, 20, 20);
+    }
+    /* end 1st input */
+
+    /* start 2st input */
+    .input-wrap .label-2::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0px;
+      width: 300px;
+      height: 5px;
+      background-color: rgb(44, 77, 53);
+      transition: .3s;
+      transform-origin: center top;
+    }
+    .input-wrap .label-2::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 5px;
+      width: 300px;
+      height: 40px;
+      /* border-radius: 10px 10px 0 0; */
+      background-color: rgba(44, 77, 53, 0.5);
+      transition: .4s;
+      transform: rotateX(90deg);
+      transform-origin: center bottom;
+    }
+    .input-wrap .txt-2 {
+      position: absolute;
+      top: 25%;
+      left: 15px;
+      color: rgba(44, 77, 53);
+      font-size: 18px;
+      transform: translateY(40px);
+    }
+    .input-wrap input:focus ~ .label-2::after {
+      transform: rotateX(90deg);
+      transform-origin: center top;
+    }
+    .input-wrap input:focus ~ .label-2::before {
+      transform: rotateX(0deg);
+      /* transform-origin: center bottom; */
+    }
+    .input-wrap input:valid ~ .label-2::after {
+      transform: rotateX(90deg);
+    }
+    .input-wrap input:valid ~ .label-2::before {
+      transform: rotateX(0deg);
+    }
+    .input-wrap input:invalid ~ .label-2::before {
+      background-color: rgba(44, 77, 53, 0.5);
+    }
+    /* end 2st input */
+
+    /* start 3st input */
+    .input-wrap .label-3::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 0px;
+      width: 300px;
+      height: 5px;
+      background-color: rgb(172, 166, 0);
+      transition: .3s;
+      transform-origin: center top;
+    }
+    .input-wrap .label-3::before {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: 5px;
+      width: 300px;
+      height: 40px;
+      border-radius: 5px 5px 0 0;
+      background-color: rgba(172, 166, 0, 0.5);
+      transition: .4s;
+      /* transform: rotateX(90deg); */
+      transform: perspective(1000px) rotate3d(1, 0, 0, 90deg);
+      transform-origin: center bottom;
+    }
+    .input-wrap .txt-3 {
+      position: absolute;
+      top: 25%;
+      left: 15px;
+      color: rgb(150, 145, 0);
+      font-size: 18px;
+      transform: translateY(40px);
+      transition: .5s ease-in-out;
+    }
+    .input-wrap input:focus ~ .label-3::after {
+      transform: rotateX(90deg);
+      transform-origin: center top;
+    }
+    .input-wrap input:focus ~ .label-3::before {
+      transform: perspective(1000px) rotate3d(1, 1, 0, 0deg);
+    }
+    .input-wrap input:valid ~ .label-3::after {
+      transform: rotateX(90deg);
+    }
+    .input-wrap input:valid ~ .label-3::before {
+      transform: rotateX(0deg);
+    }
+    .input-wrap input:invalid ~ .label-3::before {
+      background-color: rgba(172, 166, 0, 0.5);
+    }
+    /* end  3st input */
+
+    /* start 4st input */
+    .input-wrap .label-4 .border-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      fill: none;
+      transform: scale3d(1, -1, 1);
+      transition: stroke-dashoffset 0.5s;
+      pointer-events: none;
+      stroke: rgb(128, 63, 10);
+      stroke-width: 5px;
+      stroke-dasharray: 962;
+      stroke-dashoffset: 558;
+    }
+    .input-wrap .txt-4 {
+      position: absolute;
+      top: 25%;
+      left: 15px;
+      color: rgba(128, 63, 10);
+      font-size: 18px;
+      transition: .5s ease-in-out;
+    }
+    .input-wrap input:focus ~ .label-4::after {
+      transform: rotateX(90deg);
+      transform-origin: center top;
+    }
+    .input-wrap input:focus ~ .label-4::before {
+      transform: rotateX(0deg);
+    }
+    .input-wrap input:focus + .label-4 .border-input {
+      stroke-dashoffset: 0;
+    }
+    .input-wrap input:focus ~ .txt-4 {
+      transform: translateY(40px);
+      font-size: 14px;
+    }
+    .input-wrap input:valid ~ .label-4::after {
+      transform: rotateX(90deg);
+    }
+    .input-wrap input:valid ~ .label-4::before {
+      transform: rotateX(0deg);
+    }
+    .input-wrap input:valid + .label-4 .border-input {
+      stroke-dashoffset: 0;
+    }
+    .input-wrap input:valid ~ .txt-4 {
+      transform: translateY(40px);
+      color: darkcyan;
+      /* font-size: 14px; */
+    }
+
+    /* end 4st input */
+  </style>
+</head>
+<body>
+
+  <span class="input-wrap">
+    <input class="input-1" type="text" pattern="^[A-Za-z]+$" required>
+
+    <label class="label-1"></label>
+    <span class="txt-1">Ебони свое имя</span>
+  </span>
+
+  <span class="input-wrap">
+    <input class="input-2" type="text" pattern="^[A-Za-z]+$" required>
+
+    <label class="label-2"></label>
+    <span class="txt-2">Ебони свое имя</span>
+  </span>
+
+  <span class="input-wrap">
+    <input class="input-3" type="text" pattern="^[A-Za-z]+$" required>
+
+    <label class="label-3"></label>
+    <span class="txt-3">Ебони свое имя</span>
+  </span>
+
+  <span class="input-wrap">
+    <input class="input-4" type="text" pattern="^[A-Za-z]+$" required>
+
+    <label class="label-4">
+      <svg class="border-input" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
+        <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
+      </svg>
+    </label>
+    <span class="txt-4">Ебони свое имя</span>
+  </span>
+
+</body>
+</html>
