@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Burger menu</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    body * {
+      transition: .3s;
+    }
+    li {
+      list-style: none;
+    }
+    :root {
+      --line-h: 3px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="desktop-nav">
+      <ul class="desktop-nav__list">
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+      </ul>
+    </nav>
+
+    <button class="burger-btn btn-swap js-toggle-menu">
+      <!-- <div class="burger-menu__inner"> -->
+        <span class="burger-btn__line burger-btn__line--t"></span>
+        <span class="burger-btn__line burger-btn__line--m"></span>
+        <span class="burger-btn__line burger-btn__line--b"></span>
+      <!-- </div> -->
+    </button>
+
+  </header>
+  <div id="nav" class="mobile-nav hidden">
+      <ul>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+      </ul>
+    </div>
+
+  <script>
+    const nav = document.getElementById('nav');
+    const btnsToOpenNavMenu = document.querySelectorAll('.js-toggle-menu');
+
+    const handlerClick = function(btn) {
+      btn.classList.toggle('is-active');
+      btn.classList.toggle('btn-swap');
+      nav.classList.toggle('hidden');
+    };
+
+    btnsToOpenNavMenu.forEach(function(btn) {
+      btn.addEventListener('click', handlerClick.bind(null,btn));
+    });
+  </script>
+    
+</body>
+</html>
